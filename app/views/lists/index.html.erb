@@ -1,16 +1,17 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <% @lists.each do |list| %>
-    <div class="list-card col-4">
-      <div class="banner">
+    <div class="list-card col-4"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
       <%= link_to list.name, list_path(list) %>
-      </div>
+      <%= link_to list_path(list),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <i class="fa-solid fa-circle-xmark"></i>
+      <% end %>
 
-      <div class="buttons d-flex">
-      <div class="btn btn-success"><%= link_to "Add movie", new_list_bookmark_path(list) %></div>
-      <div class="btn btn-danger"><%= link_to "Delete list", list_path(list),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
-      </div>
+      <%= link_to new_list_bookmark_path(list) do %>
+      <i class="fa-solid fa-circle-plus"></i>
+      <% end %>
     </div>
     <% end %>
   </div>

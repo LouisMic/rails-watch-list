@@ -6,3 +6,15 @@
 .movie-card img{
   height: 200px;
 }
+
+.list-card {
+  height: 300px;
+  font-size: 30px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.list-card a {
+  text-decoration: none;
+  color: $light-gray;
+}
