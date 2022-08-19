@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <% @lists.each do |list| %>
+    <div class="list-card col-4">
+      <div class="banner">
+      <%= link_to list.name, list_path(list) %>
+      </div>
+
+      <div class="buttons d-flex">
+      <div class="btn btn-success"><%= link_to "Add movie", new_list_bookmark_path(list) %></div>
+      <div class="btn btn-danger"><%= link_to "Delete list", list_path(list),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="btn btn-primary"><%= link_to "Create a new list", new_list_path() %></div>
+</div>

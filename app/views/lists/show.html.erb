@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="title text-center">
+  <h1><%= @list.name %></h1>
+  </div>
+
+  <div class="row d-flex">
+  <% @list.movies.each do |movie| %>
+    <div class="movie-card col-3">
+    <img src="https://image.tmdb.org/t/p/original<%=movie.poster_url%>" alt="">
+    <h3><%= movie.title %></h3>
+    <%= movie.overview %>
+    </div>
+  <% end %>
+  </div>
+</div>
